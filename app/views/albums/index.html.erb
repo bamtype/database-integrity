@@ -1,0 +1,68 @@
+<!-- <p id="notice"><%= notice %></p>
+
+<h1>Listing Albums</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Tracks</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @albums.each do |album| %>
+      <tr>
+        <td><%= image_tag album.image.url(:medium) %></td>
+        <td><%= album.title %></td>
+        <td><%= album.description %></td>
+        <td><%= album.tracks %></td>
+        <td><%= album.rating %></td>
+        <td><%= link_to 'Show', album %></td>
+        <td><%= link_to 'Edit', edit_album_path(album) %></td>
+        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Album', new_album_path %> -->
+  <% if !user_signed_in? %>
+    <div class="jumbotron">
+      <h1>YOUR FAVOURITE ALBUMS REVIEWED</h1>
+      <P>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut lqui officia deserunt mollit anim id est laborum.
+      </P>
+      <p><%= link_to "Sign Up To Write A Review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+    </div>
+
+  <% end %>
+<div class="row">
+  <% @albums.each do |album| %>
+      <div class=".col-sm-6 col-md-3">
+        <div class="thumbnail">
+          <%= link_to (image_tag album.image.url(:medium), class: 'image'), album %>
+
+        </div>
+      </div>  
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
