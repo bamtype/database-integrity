@@ -1,4 +1,4 @@
-<%= form_for([@album, @review]) do |f| %>
+<%= form_for([@reviews, @album_id]) do |f| %>
   
   <% if @review.errors.any? %>
         <div id="error_explanation">

@@ -1,12 +1,15 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_album
-  # before_action :authenticate_user
+  before_action :authenticate_user
   # GET /reviews
   # GET /reviews.json
   
   def new
     @review = Review.new
+  end
+  def show
+
   end
 
   # GET /reviews/1/edit
@@ -24,7 +27,6 @@ class ReviewsController < ApplicationController
      else
      render 'new'
      end
-  end  
 
     respond_to do |format|
       if @review.save
@@ -35,7 +37,9 @@ class ReviewsController < ApplicationController
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end  
+
+ 
 
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json

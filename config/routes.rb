@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
   
+  devise_for :admins
   devise_for :users
   resources :albums do
     resources :reviews, except: [:show, :index]
+  end
+  resources :reviews
+  namespace :admin do
+    resources :users
   end
   root 'albums#index'
   # The priority is based upon order of creation: first created -> highest priority.
